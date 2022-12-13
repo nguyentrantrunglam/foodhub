@@ -23,5 +23,8 @@ body {
   margin-top: calc((100vh - 812px) / 2);
   overflow: auto;
   box-sizing: border-box;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
 }
 </style>

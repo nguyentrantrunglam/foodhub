@@ -1,12 +1,19 @@
 <template>
   <div class="button">
-    <div class="logo"></div>
-    <div class="name">FACEBOOK</div>
+    <div class="logo" :class="button.class"></div>
+    <div class="name">{{button.name}}</div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    button: {
+      default: { id: 1, name: "facebook", class: "facebook" },
+      require: true,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -24,13 +31,21 @@ export default {};
     height: 29px;
     background: #000;
     border-radius: 50%;
+    background-position: center;
   }
   .name {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 13px;
     line-height: 13px;
     letter-spacing: 0.05em;
     color: #000000;
+    text-transform: uppercase;
+  }
+  .facebook {
+    background: url("@/assets/icon-facebook.svg");
+  }
+  .google {
+    background: url("@/assets/icon-google.svg");
   }
 }
 </style>

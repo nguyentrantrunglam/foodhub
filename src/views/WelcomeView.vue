@@ -10,7 +10,7 @@
         <div class="description">
           Your favourite foods delivered fast at your door.
         </div>
-        <SocialLogin></SocialLogin>
+        <SocialLogin :socialLogin='socialLogin'></SocialLogin>
       </div>
     </div>
   </div>
@@ -29,6 +29,13 @@ export default {
   data() {
     return {
       isLoading: true,
+      socialLogin: {
+        buttons: [
+          { id: 1, name: "facebook", class: "facebook" },
+          { id: 2, name: "google", class: "google" },
+        ],
+        title: " sign in with",
+      },
     };
   },
   created() {
