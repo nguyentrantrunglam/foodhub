@@ -12,10 +12,7 @@
         :button="button"
       ></SocialButton>
     </div>
-    <div class="button-login-email">Start with email or phone</div>
-    <div class="have-account">
-      Already have an account? <span>Sign In</span>
-    </div>
+
   </div>
 </template>
 
@@ -59,32 +56,6 @@ export default {
     gap: 15px;
     margin-top: 19px;
   }
-  .button-login-email {
-    font-weight: 500;
-    font-size: 17px;
-    line-height: 17px;
-    text-align: center;
-    color: #fefefe;
-    background: rgba(255, 255, 255, 0.3);
-    border: 1px solid #ffffff;
-    border-radius: 30px;
-    padding: 18px 0px 19px 0px;
-    margin-top: 23px;
-    cursor: pointer;
-  }
-  .have-account {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 14px;
-    color: #fefefe;
-    text-align: center;
-    margin-top: 28px;
-    span{
-      text-decoration: underline;
-      cursor: pointer;
-      font-weight: 500;
-    }
-  }
+  
 }
 </style>

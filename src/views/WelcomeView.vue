@@ -10,7 +10,13 @@
         <div class="description">
           Your favourite foods delivered fast at your door.
         </div>
-        <SocialLogin :socialLogin='socialLogin'></SocialLogin>
+        <SocialLogin :socialLogin="socialLogin"></SocialLogin>
+        <div class="button-login-email" @click="startOnboarding">
+          Start with email or phone
+        </div>
+        <div class="have-account">
+          Already have an account? <span>Sign In</span>
+        </div>
       </div>
     </div>
   </div>
@@ -46,6 +52,9 @@ export default {
       setTimeout(() => {
         this.isLoading = false;
       }, 2000);
+    },
+    startOnboarding() {
+      this.$router.push({name: 'OnBoarding'})
     },
   },
 };
@@ -96,6 +105,33 @@ export default {
         opacity: 0.87;
         width: 266px;
         margin-bottom: 187px;
+      }
+      .button-login-email {
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 17px;
+        text-align: center;
+        color: #fefefe;
+        background: rgba(255, 255, 255, 0.3);
+        border: 1px solid #ffffff;
+        border-radius: 30px;
+        padding: 18px 0px 19px 0px;
+        margin-top: 23px;
+        cursor: pointer;
+      }
+      .have-account {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 14px;
+        color: #fefefe;
+        text-align: center;
+        margin-top: 28px;
+        span {
+          text-decoration: underline;
+          cursor: pointer;
+          font-weight: 500;
+        }
       }
     }
   }
