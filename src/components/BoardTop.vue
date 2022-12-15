@@ -1,17 +1,35 @@
 .
 <template>
   <div class="circle">
-    <div class="square square-1"></div>
-    <div class="square square-2"></div>
-    <div class="square square-3"></div>
-    <div class="square square-4"></div>
-    <div class="square square-5"></div>
-
+    <div
+      v-for="(item, value) in icons"
+      :key="item.id"
+      class="square"
+      :class="`square-${value + 1}`"
+    >
+      <img :src="require(`@/assets/ic-${item.name}.svg`)" alt="" />
+    </div>
+    <div class="small-circle">
+      <div><div :class="`onboard-img-onboarding${imageNumber}`"></div></div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    icons: {
+      required: true,
+      type: Array,
+    },
+    imageNumber: {
+      default: 1,
+    },
+  },
+  created() {},
+  methods: {},
+  computed: {},
+};
 </script>
 
 <style lang="scss" scoped>
@@ -26,13 +44,14 @@ export default {};
   position: relative;
   .square {
     position: absolute;
-    background: #c4c4c4;
+    // background: #ffffff;
     z-index: 2;
+    background-position: center;
   }
   .square-1 {
     border-radius: 16px;
-    height: 56px;
-    width: 56px;
+    height: 57px;
+    width: 57px;
     left: 209px;
     bottom: 267px;
   }
@@ -61,8 +80,43 @@ export default {};
     border-radius: 10px;
     height: 31px;
     width: 31px;
-    left:140px;
+    left: 140px;
     bottom: 27px;
+  }
+
+  .small-circle {
+    position: absolute;
+    bottom: 42px;
+    left: 42px;
+    background: #c4c4c4;
+    width: 226px;
+    height: 226px;
+    border-radius: 50%;
+    .onboard-img-onboarding1 {
+      width: 226px;
+      height: 302px;
+      position: absolute;
+      bottom: 0px;
+      background-image: url("@/assets/onboarding1.svg");
+    }
+    .onboard-img-onboarding2 {
+      width: 340px;
+      height: 285px;
+      position: absolute;
+      bottom: 0px;
+      left: -40px;
+      bottom: -24px;
+      background-image: url("@/assets/onboarding2.svg");
+    }
+    .onboard-img-onboarding3 {
+      width: 226px;
+      height: 285px;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      bottom: 17px;
+      background-image: url("@/assets/onboarding3.svg");
+    }
   }
 }
 </style>

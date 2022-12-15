@@ -1,7 +1,10 @@
 <template>
   <div class="onboarding">
     <div class="board-top">
-      <BoardTop></BoardTop>
+      <BoardTop
+        :icons="icons[currentPage]"
+        :imageNumber="currentPage"
+      ></BoardTop>
       <div class="pagination">
         <div
           v-for="item in pages"
@@ -10,7 +13,7 @@
           :class="{ active: item.active }"
         ></div>
       </div>
-      <div class="big-text">Browse your menu and order directly</div>
+      <div class="big-text">{{ bigText[currentPage] }}</div>
     </div>
     <div class="board-bottom">
       <div class="small-text">
@@ -34,6 +37,34 @@ export default {
       ],
       totalPages: 1,
       currentPage: 1,
+      icons: {
+        1: [
+          { name: "starbuck" },
+          { name: "pizzahut" },
+          { name: "burgerking" },
+          { name: "kfc" },
+          { name: "jimmyjohn" },
+        ],
+        2: [
+          { name: "starbuck" },
+          { name: "pizzahut" },
+          { name: "burgerking" },
+          { name: "kfc" },
+          { name: "jimmyjohn" },
+        ],
+        3: [
+          { name: "starbuck" },
+          { name: "pizzahut" },
+          { name: "burgerking" },
+          { name: "kfc" },
+          { name: "jimmyjohn" },
+        ],
+      },
+      bigText: {
+        1: "Browse your menu and order directly",
+        2: "Even to space with us! Together",
+        3: "Pickup delivery at your door",
+      },
     };
   },
   watch: {
@@ -48,6 +79,8 @@ export default {
     handleNextPage() {
       if (this.currentPage < this.pages.length) {
         this.currentPage += 1;
+      } else {
+        this.$router.push({ name: "welcome" });
       }
     },
   },
