@@ -5,7 +5,7 @@
     </Transition>
     <div v-if="!isLoading" class="welcome-screen">
       <div class="overlay">
-        <button class="skip">Skip</button>
+        <button class="skip" @click="handleDirectLogin">Skip</button>
         <div class="welcome-to">Welcome to <span>FoodHub</span></div>
         <div class="description">
           Your favourite foods delivered fast at your door.
@@ -54,7 +54,10 @@ export default {
       }, 2000);
     },
     startOnboarding() {
-      this.$router.push({name: 'OnBoarding'})
+      this.$router.push({ name: "OnBoarding" });
+    },
+    handleDirectLogin() {
+      this.$router.push({ name: "LogIn" });
     },
   },
 };

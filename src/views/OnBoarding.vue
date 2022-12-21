@@ -1,10 +1,12 @@
 <template>
   <div class="onboarding">
     <div class="board-top">
-      <BoardTop
-        :icons="icons[currentPage]"
-        :imageNumber="currentPage"
-      ></BoardTop>
+      <Transition name="board">
+        <BoardTop
+          :icons="icons[currentPage]"
+          :imageNumber="currentPage"
+        ></BoardTop>
+      </Transition>
       <div class="pagination">
         <div
           v-for="item in pages"
@@ -80,7 +82,7 @@ export default {
       if (this.currentPage < this.pages.length) {
         this.currentPage += 1;
       } else {
-        this.$router.push({ name: "welcome" });
+        this.$router.push({ name: "LogIn" });
       }
     },
   },
@@ -145,5 +147,14 @@ export default {
       background-position: center;
     }
   }
+}
+.board-enter-from,
+.board-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+.board-enter-active,
+.board-leave-active {
+  transition: all 10s ease;
 }
 </style>
